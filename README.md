@@ -21,6 +21,6 @@ user.valid?                 #true
 Thus every instance of ```ActiveModel::Validations``` now has the following methods:
 
 1. ```validate_only(*fields)``` — change the set of fields that are validated
-2. ```validate_except(*fields)``` — validate all fields except for specified
+2. ```validate_except(*fields)``` — validate all fields except for specified ones
 3. ```validate_all()``` — skip to the original mode when all validations are active
 
