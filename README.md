@@ -14,8 +14,9 @@ end
 user = User.new(params)     #suppose params contain only email
 user.valid?                 #false
 
-user.validate_only :email
-user.valid?                 #true
+user.validate_only :email do
+    user.valid?             #true
+end
 ```
 
 Thus every instance of ```ActiveModel::Validations``` now has the following methods:
@@ -24,6 +25,9 @@ Thus every instance of ```ActiveModel::Validations``` now has the following meth
 2. ```validate_except(*fields)``` — validate all fields except for specified ones
 
 ## Release notes
+
+### 0.1.1
+Make ```validate_except``` and ```validate_only``` return the value from passed blocks
 
 ### 0.1.0
 Please note that this release introduces a major API change.
