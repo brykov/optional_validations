@@ -32,17 +32,17 @@ module ActiveModel
     def validate_only(*fields, &block)
       @__validate_except = nil
       @__validate_only = fields.map &:to_sym
-      yield
+      result = yield
       @__validate_only = nil
-      true
+      result
     end
 
     def validate_except(*fields, &block)
       @__validate_only = nil
       @__validate_except = fields.map &:to_sym
-      yield
+      result = yield
       @__validate_except = nil
-      true
+      result
     end
 
   end

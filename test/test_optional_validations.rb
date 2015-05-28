@@ -187,5 +187,23 @@ class OptionalValidationsTest < Minitest::Test
 
   end
 
+  def test_returned_value
+    model = Class.new(ModelBase) do
+    end
+
+    m = model.new
+
+    test = m.validate_only :attr1 do
+      'test string'
+    end
+    assert_equal test, 'test string'
+
+    test = m.validate_except :attr1 do
+      'test string'
+    end
+    assert_equal test, 'test string'
+
+  end
+
 
 end

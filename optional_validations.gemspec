@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.name        = 'optional_validations'
-  spec.version     = '0.1.0'
-  spec.date        = '2015-04-16'
+  spec.version     = '0.1.1'
+  spec.date        = '2015-05-28'
   spec.summary     = 'Provides ability to choose ActiveModel fields to be validated'
   spec.description = 'Introduces new ActiveModel::Validations methods — validate_only and validate_except'
   spec.author      = 'Ivan Brykov'
