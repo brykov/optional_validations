@@ -29,20 +29,18 @@ module ActiveModel
       end
     end
 
-    def validate_only(*fields)
+    def validate_only(*fields, &block)
       @__validate_except = nil
       @__validate_only = fields.map &:to_sym
+      yield
+      @__validate_only = nil
       true
     end
 
-    def validate_except(*fields)
+    def validate_except(*fields, &block)
       @__validate_only = nil
       @__validate_except = fields.map &:to_sym
-      true
-    end
-
-    def validate_all
-      @__validate_only = nil
+      yield
       @__validate_except = nil
       true
     end

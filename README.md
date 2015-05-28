@@ -22,5 +22,13 @@ Thus every instance of ```ActiveModel::Validations``` now has the following meth
 
 1. ```validate_only(*fields)``` — change the set of fields that are validated
 2. ```validate_except(*fields)``` — validate all fields except for specified ones
-3. ```validate_all()``` — skip to the original mode when all validations are active
 
+## Release notes
+
+### 0.1.0
+Please note that this release introduces a major API change.
+
+```validate_all``` method removed
+
+```validate_only``` and ```validate_except``` now expect a block to be passed and will only 
+affect the behavior of the block. Object's validations are restored after the block is processed. 
