@@ -2,6 +2,18 @@
 
 This gem provides ability to exclude certain fields from validation process
 
+## Installation
+
+You can install the [gem](https://rubygems.org/gems/optional_validations) by typing ```gem install optional_validations``` via your command line.
+
+Or use it in your Gemfile:
+
+```
+gem 'optional_validations'
+```
+
+## Usage
+
 Example:
 
 ```ruby
