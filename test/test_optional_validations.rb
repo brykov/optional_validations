@@ -205,5 +205,31 @@ class OptionalValidationsTest < Minitest::Test
 
   end
 
+  def test_validates_with
+    model = Class.new(ModelBase) do
+      validates_with(Class.new(ActiveModel::Validator) do
+        def validate(record)
+          record.errors.add :base, 'attr1 should be above zero' unless record.attr1 > 0
+        end
+      end)
+      validates_presence_of :attr2
+    end
+
+    m = model.new
+    m.attr1 = 0
+
+    m.validate_only :attr1 do
+      assert !m.valid?
+    end
+
+    m.attr1 = 1
+
+    m.validate_only :attr1 do
+      assert m.valid?
+    end
+
+  end
+
+
 
 end

@@ -8,6 +8,8 @@ module ActiveModel
       alias_method :__validates_with, :validates_with
       def validates_with(*args, &block)
 
+        return __validates_with(*args, &block) unless args[1].present?
+
         _if = Array(args[1][:if])
 
         # if multiple attribute names are supplied we need to split them into separate validates_with calls
